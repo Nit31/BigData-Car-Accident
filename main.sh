@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Load the data
+echo "Running data collection"
+bash scripts/data_collection.sh
+
 # Pre-processing
 echo "Running pre-processing"
 bash scripts/preprocess.sh
