@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS accidents (
     Humidity_percent DECIMAL(5, 2),
     Pressure_in DECIMAL(5, 2),
     Visibility_mi DECIMAL(5, 2),
-    Wind_Speed_mph DECIMAL(5, 2),
+    Wind_Speed_mph DECIMAL(6, 2),
     Precipitation_in DECIMAL(5, 2),
     Weather_Condition VARCHAR(255),
     Sunrise_Sunset VARCHAR(50)
