@@ -20,10 +20,7 @@ def main():
         # Read the commands from the file and execute them.
         with open(os.path.join("sql", "create_tables.sql")) as file:
             content = file.read()
-            for stmt in content.split(';'):
-                stmt = stmt.strip()
-                if stmt:
-                    cur.execute(stmt)
+            cur.execute(content)
         conn.commit()
 
         # Read the commands from the file and execute them.
