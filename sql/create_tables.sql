@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS accidents (
     Pressure_in DECIMAL(5, 2),
     Visibility_mi DECIMAL(5, 2),
     Wind_Speed_mph DECIMAL(5, 2),
-    Precipitation_in DECIMAL(5, 5),
+    Precipitation_in DECIMAL(5, 2),
     Weather_Condition VARCHAR(255),
     Sunrise_Sunset VARCHAR(50)
 );
