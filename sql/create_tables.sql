@@ -1,6 +1,6 @@
 START TRANSACTION;
 
-DROP TABLE accidents CASCADE;
+DROP TABLE IF EXISTS accidents CASCADE;
 
 -- Create the accidents table
 CREATE TABLE IF NOT EXISTS accidents (
@@ -29,6 +29,6 @@ CREATE TABLE IF NOT EXISTS accidents (
     Sunrise_Sunset VARCHAR(50)
 );
 
-ALTER DATABASE team0_projectdb SET datestyle TO iso, ymd;
+ALTER DATABASE team13_projectdb SET datestyle TO iso, ymd;
 
 COMMIT;
