@@ -1,8 +1,9 @@
+import csv
+import io
 import os
 from pprint import pprint
+
 import psycopg2 as psql
-import io
-import csv
 
 
 def main():
@@ -42,7 +43,11 @@ def main():
                 writer = csv.writer(buffer)
                 writer.writerow(columns)
                 for row in reader:
-                    writer.writerow([row.get(col) for col in columns])
+                    values = []
+                    for col in columns:
+                        val = row.get(col)
+                        values.append(val if val else 'null')
+                    writer.writerow(values)
                 buffer.seek(0)
                 cur.copy_expert(sql_copy, buffer)
 
