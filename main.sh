@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Activate the virtual environment
+source ./venv/bin/activate
+
+# Install the required packages
+pip install --upgrade pip
+pip install -r requirements.txt
+
 # Load the data
 echo "Running data collection"
 bash scripts/data_collection.sh
