@@ -172,3 +172,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Datasets
+*.csv
+
+# Credentials
+*.pass
+
+# Cache
+.DS_Store
