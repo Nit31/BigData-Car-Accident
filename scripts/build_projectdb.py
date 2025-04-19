@@ -1,7 +1,8 @@
 import os
 from pprint import pprint
-
 import psycopg2 as psql
+import io
+import csv
 
 
 def main():
@@ -26,8 +27,24 @@ def main():
         # Read the commands from the file and execute them.
         with open(os.path.join("sql", "import_data.sql")) as file:
             sql_copy = file.read()
-            with open(os.path.join("data", "data.csv"), "r") as data:
-                cur.copy_expert(sql_copy, data)
+            # Filter and reorder CSV columns to match the COPY definition
+            columns = [
+                'ID', 'Severity', 'Start_Time', 'End_Time',
+                'Start_Lat', 'Start_Lng', 'End_Lat', 'End_Lng',
+                'Distance_mi', 'Side', 'City', 'County', 'State',
+                'Weather_Timestamp', 'Temperature_F', 'Wind_Chill_F',
+                'Humidity_percent', 'Pressure_in', 'Visibility_mi',
+                'Wind_Speed_mph', 'Precipitation_in', 'Weather_Condition', 'Sunrise_Sunset'
+            ]
+            with open(os.path.join("data", "data.csv"), "r") as infile:
+                reader = csv.DictReader(infile)
+                buffer = io.StringIO()
+                writer = csv.writer(buffer)
+                writer.writerow(columns)
+                for row in reader:
+                    writer.writerow([row.get(col) for col in columns])
+                buffer.seek(0)
+                cur.copy_expert(sql_copy, buffer)
 
         # If the sql statements are CRUD then you need to commit the change
         conn.commit()
