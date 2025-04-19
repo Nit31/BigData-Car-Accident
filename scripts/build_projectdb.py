@@ -25,10 +25,9 @@ def main():
 
         # Read the commands from the file and execute them.
         with open(os.path.join("sql", "import_data.sql")) as file:
-            # We assume that the COPY commands in the file are ordered (1.depts, 2.emps)
-            commands = file.readlines()
+            sql_copy = file.read()
             with open(os.path.join("data", "data.csv"), "r") as data:
-                cur.copy_expert(commands[0], data)
+                cur.copy_expert(sql_copy, data)
 
         # If the sql statements are CRUD then you need to commit the change
         conn.commit()
