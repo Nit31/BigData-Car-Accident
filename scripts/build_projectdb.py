@@ -45,13 +45,17 @@ def main():
                 for row in reader:
                     values = []
                     for col in columns:
-                        val = row.get(col)
-                        values.append(val if val else 'null')
+                        raw_val = row.get(col)
+                        # Treat missing keys or blank values as NULL
+                        if raw_val is None or raw_val.strip() == "":
+                            values.append('null')
+                        else:
+                            values.append(raw_val.strip())
                     writer.writerow(values)
                 buffer.seek(0)
                 cur.copy_expert(sql_copy, buffer)
 
-        # If the sql statements are CRUD then you need to commit the change
+        # If the sql statements are CRUD then commit the change
         conn.commit()
 
         pprint(conn)
