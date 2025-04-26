@@ -1,0 +1,97 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SHOW DATABASES;
++------------------------+
+|     database_name      |
++------------------------+
+| default                |
+| retake1                |
+| root_db                |
+| show                   |
+| team0_projectdb        |
+| team11_projectdb       |
+| team12_hive_projectdb  |
+| team13_projectdb       |
+| team14_projectdb       |
+| team15_projectdb       |
+| team16_projectdb       |
+| team17_projectdb       |
+| team18_projectdb       |
+| team19_projectdb       |
+| team1_projectdb        |
+| team20_projectdb       |
+| team21_projectdb       |
+| team22_projectdb       |
+| team23_projectdb       |
+| team24_projectdb       |
+| team25_projectdb       |
+| team26_projectdb       |
+| team27_projectdb       |
+| team28_projectdb       |
+| team29_projectdb       |
+| team2_projectdb        |
+| team30_projectdb       |
+| team31_projectdb       |
+| team34_projectdb       |
+| team36_projectdb       |
+| team36db               |
+| team37_projectdb       |
+| team38_projectdb       |
+| team39_projectdb       |
+| team3_projectdb        |
+| team4_projectdb        |
+| team5_projectdb        |
+| team6_projectdb        |
+| team7_projectdb        |
+| team8_projectdb        |
+| team9_projectdb        |
+| teamx_projectdb        |
+| testdb                 |
++------------------------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP DATABASE IF EXISTS team13_projectdb CASCADE;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE DATABASE team13_projectdb LOCATION "project/hive/warehouse";
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team13_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SHOW TABLES;
++-----------+
+| tab_name  |
++-----------+
++-----------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE accidents_new(
+. . . . . . . . . . . . . . . . . . . . . . .>     ID STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Severity INT,
+. . . . . . . . . . . . . . . . . . . . . . .>     Start_Time BIGINT,
+. . . . . . . . . . . . . . . . . . . . . . .>     End_Time BIGINT,
+. . . . . . . . . . . . . . . . . . . . . . .>     Start_Lat STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Start_Lng STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     End_Lat STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     End_Lng STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Distance_mi STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Side CHAR(1),
+. . . . . . . . . . . . . . . . . . . . . . .>     City STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     County STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     State CHAR(2),
+. . . . . . . . . . . . . . . . . . . . . . .>     Weather_Timestamp BIGINT,
+. . . . . . . . . . . . . . . . . . . . . . .>     Temperature_F STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Wind_Chill_F STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Humidity_percent STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Pressure_in STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Visibility_mi STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Wind_Speed_mph STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Precipitation_in STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Weather_Condition STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     Sunrise_Sunset STRING
+. . . . . . . . . . . . . . . . . . . . . . .> )
+. . . . . . . . . . . . . . . . . . . . . . .>     STORED AS PARQUET
+. . . . . . . . . . . . . . . . . . . . . . .>     LOCATION '/user/team13/project/warehouse/accidents'
+. . . . . . . . . . . . . . . . . . . . . . .>     tblproperties ("parquet.compress"="GZIP");
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SHOW TABLES;
++----------------+
+|    tab_name    |
++----------------+
+| accidents_new  |
++----------------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
