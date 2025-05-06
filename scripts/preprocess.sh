@@ -1,13 +1,30 @@
 #!/bin/bash
 
-sed -E -i '' \
-  -e '1s/Distance\(mi\)/Distance_mi/' \
-  -e '1s/Weather_Timestamp\?/Weather_Timestamp/' \
-  -e '1s/Temperature\(F\)/Temperature_F/' \
-  -e '1s/Wind_Chill\(F\)/Wind_Chill_F/' \
-  -e '1s/Humidity\(%\)/Humidity_percent/' \
-  -e '1s/Pressure\(in\)/Pressure_in/' \
-  -e '1s/Visibility\(mi\)/Visibility_mi/' \
-  -e '1s/Wind_Speed\(mph\)/Wind_Speed_mph/' \
-  -e '1s/Precipitation\(in\)/Precipitation_in/' \
-  data/data.csv
+VENV_DIR="venv"
+
+create_venv() {
+    echo "Creating virtual environment with Python 3.11..."
+    python3.11 -m venv "$VENV_DIR"
+}
+
+# Check if venv exists
+if [ -d "$VENV_DIR" ] && [ -x "$VENV_DIR/bin/python" ]; then
+    PYTHON_VERSION=$("$VENV_DIR/bin/python" -V 2>&1)
+    if [[ "$PYTHON_VERSION" =~ Python\ 3\.11\.* ]]; then
+        echo "Virtual environment already exists and uses Python 3.11."
+    else
+        echo "Removing existing virtual environment..."
+        rm -rf "$VENV_DIR"
+        create_venv
+    fi
+else
+    echo "No virtual environment found."
+    create_venv
+fi
+
+# Activate the virtual environment
+source ./venv/bin/activate
+
+# Install the required packages
+pip install --upgrade pip
+pip install -r requirements.txt
