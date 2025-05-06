@@ -2,7 +2,6 @@
 
 VENV_DIR="venv"
 
-# Function to create Python 3.11 virtual environment
 create_venv() {
     echo "Creating virtual environment with Python 3.11..."
     python3.11 -m venv "$VENV_DIR"
@@ -14,7 +13,6 @@ if [ -d "$VENV_DIR" ] && [ -x "$VENV_DIR/bin/python" ]; then
     if [[ "$PYTHON_VERSION" =~ Python\ 3\.11\.* ]]; then
         echo "Virtual environment already exists and uses Python 3.11."
     else
-        echo "Virtual environment exists but is not using Python 3.11. Found: $PYTHON_VERSION"
         echo "Removing existing virtual environment..."
         rm -rf "$VENV_DIR"
         create_venv
