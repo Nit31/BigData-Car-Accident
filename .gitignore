@@ -181,3 +181,9 @@ cython_debug/
 
 # Cache
 .DS_Store
+
+models/model1/
+models/model2
+
+data/test.json
+data/train.json
