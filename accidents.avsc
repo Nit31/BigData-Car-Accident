@@ -1,0 +1,145 @@
+{
+  "type" : "record",
+  "name" : "accidents",
+  "doc" : "Sqoop import of accidents",
+  "fields" : [ {
+    "name" : "id",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "id",
+    "sqlType" : "12"
+  }, {
+    "name" : "severity",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "severity",
+    "sqlType" : "4"
+  }, {
+    "name" : "start_time",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "start_time",
+    "sqlType" : "93"
+  }, {
+    "name" : "end_time",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "end_time",
+    "sqlType" : "93"
+  }, {
+    "name" : "start_lat",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "start_lat",
+    "sqlType" : "2"
+  }, {
+    "name" : "start_lng",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "start_lng",
+    "sqlType" : "2"
+  }, {
+    "name" : "end_lat",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "end_lat",
+    "sqlType" : "2"
+  }, {
+    "name" : "end_lng",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "end_lng",
+    "sqlType" : "2"
+  }, {
+    "name" : "distance_mi",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "distance_mi",
+    "sqlType" : "2"
+  }, {
+    "name" : "side",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "side",
+    "sqlType" : "1"
+  }, {
+    "name" : "city",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "city",
+    "sqlType" : "12"
+  }, {
+    "name" : "county",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "county",
+    "sqlType" : "12"
+  }, {
+    "name" : "state",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "state",
+    "sqlType" : "1"
+  }, {
+    "name" : "weather_timestamp",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "weather_timestamp",
+    "sqlType" : "93"
+  }, {
+    "name" : "temperature_f",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "temperature_f",
+    "sqlType" : "2"
+  }, {
+    "name" : "wind_chill_f",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "wind_chill_f",
+    "sqlType" : "2"
+  }, {
+    "name" : "humidity_percent",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "humidity_percent",
+    "sqlType" : "2"
+  }, {
+    "name" : "pressure_in",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "pressure_in",
+    "sqlType" : "2"
+  }, {
+    "name" : "visibility_mi",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "visibility_mi",
+    "sqlType" : "2"
+  }, {
+    "name" : "wind_speed_mph",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "wind_speed_mph",
+    "sqlType" : "2"
+  }, {
+    "name" : "precipitation_in",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "precipitation_in",
+    "sqlType" : "2"
+  }, {
+    "name" : "weather_condition",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "weather_condition",
+    "sqlType" : "12"
+  }, {
+    "name" : "sunrise_sunset",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "sunrise_sunset",
+    "sqlType" : "12"
+  } ],
+  "tableName" : "accidents"
+}

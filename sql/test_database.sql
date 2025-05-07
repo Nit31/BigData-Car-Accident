@@ -1,0 +1,1 @@
+SELECT * FROM accidents LIMIT 10;
