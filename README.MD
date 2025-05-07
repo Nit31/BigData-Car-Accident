@@ -16,6 +16,7 @@ Data analysis using Hive. Executes multiple HiveQL queries against the Parquet d
 Machine learning with Spark. Trains predictive models using Spark ML on the distributed dataset and saves the trained models to both HDFS and local storage for later use.
 
 ### Stage 4
+Saves evaluation metrics from the stage 3 to a Hive external table.
 
 ## How to run the project
 1. Create `.psql.pass` and `.hive.pass` files in `secrets/` folder.
