@@ -1,9 +1,7 @@
 USE team13_projectdb;
 
--- Drop existing table if exists
 DROP TABLE IF EXISTS q11_results;
 
--- Create external table for city severity proportions
 CREATE EXTERNAL TABLE q11_results (
     City STRING,
     Severity_Level INT,
@@ -16,7 +14,6 @@ LOCATION 'project/hive/warehouse/q11';
 
 SET hive.resultset.use.unique.column.names = false;
 
--- Calculate city-wise severity proportions
 INSERT INTO q11_results
 SELECT 
     standardized_city AS City,
@@ -48,7 +45,6 @@ ORDER BY
     City, 
     Severity;
 
--- Export results
 INSERT OVERWRITE DIRECTORY 'project/output/q11'  
 ROW FORMAT DELIMITED 
 FIELDS TERMINATED BY ',' 

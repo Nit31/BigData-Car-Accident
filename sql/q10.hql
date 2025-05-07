@@ -1,9 +1,7 @@
 USE team13_projectdb;
 
--- Drop existing table if exists
 DROP TABLE IF EXISTS q10_results;
 
--- Create external table with severity ratios
 CREATE EXTERNAL TABLE q10_results (
     Year INT,
     Severity_Level INT,
@@ -16,7 +14,6 @@ LOCATION 'project/hive/warehouse/q10';
 
 SET hive.resultset.use.unique.column.names = false;
 
--- Calculate annual severity proportions
 INSERT INTO q10_results
 SELECT 
     accident_year,
@@ -47,7 +44,6 @@ ORDER BY
     accident_year,
     Severity;
 
--- Export results
 INSERT OVERWRITE DIRECTORY 'project/output/q10'  
 ROW FORMAT DELIMITED 
 FIELDS TERMINATED BY ',' 

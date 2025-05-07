@@ -142,7 +142,7 @@
 . . . . . . . . . . . . . . . . . . . . . . .>     Side,
 . . . . . . . . . . . . . . . . . . . . . . .>     City,
 . . . . . . . . . . . . . . . . . . . . . . .>     County,
-. . . . . . . . . . . . . . . . . . . . . . .>     cast(from_unixtime(CAST(Weather_Timestamp/1000 AS BIGINT), 'yyyy-MM-dd HH:mm:ss.SSS') AS TIMESTAMP) AS Weather_Timestamp,
+. . . . . . . . . . . . . . . . . . . . . . .>     cast(from_unixtime(CAST(Weather_Timestamp/1000 AS BIGINT), 'yyyy-MM-dd HH:mm:ss.SSS') AS TIMESTAMP) AS Weather_Timestamp ,
 . . . . . . . . . . . . . . . . . . . . . . .>     cast(Temperature_F    AS DECIMAL(5,2))               AS Temperature_F,
 . . . . . . . . . . . . . . . . . . . . . . .>     cast(Wind_Chill_F     AS DECIMAL(5,2))               AS Wind_Chill_F,
 . . . . . . . . . . . . . . . . . . . . . . .>     cast(Humidity_percent AS INT)                        AS Humidity_percent,
@@ -154,3 +154,6 @@
 . . . . . . . . . . . . . . . . . . . . . . .>     State,
 . . . . . . . . . . . . . . . . . . . . . . .>     Sunrise_Sunset
 . . . . . . . . . . . . . . . . . . . . . . .> FROM accidents_new;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS accidents_new;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 

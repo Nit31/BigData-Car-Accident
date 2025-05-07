@@ -1,9 +1,7 @@
 USE team13_projectdb;
 
--- Drop existing table if exists
 DROP TABLE IF EXISTS q9_results;
 
--- Create external table with severity dimension
 CREATE EXTERNAL TABLE q9_results (
     Hour_Of_Day INT,
     Is_Weekend BOOLEAN,
@@ -17,7 +15,6 @@ LOCATION 'project/hive/warehouse/q9';
 
 SET hive.resultset.use.unique.column.names = false;
 
--- Calculate hourly severity proportions
 INSERT INTO q9_results
 SELECT 
     hour_of_day,
@@ -53,7 +50,6 @@ ORDER BY
     is_weekend,
     Severity;
 
--- Export results
 INSERT OVERWRITE DIRECTORY 'project/output/q9'  
 ROW FORMAT DELIMITED 
 FIELDS TERMINATED BY ',' 

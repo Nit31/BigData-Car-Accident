@@ -1,3 +1,5 @@
+USE team13_projectdb;
+
 CREATE EXTERNAL TABLE evaluation_metrics (
     accuracy DOUBLE,
     f1_score DOUBLE,
